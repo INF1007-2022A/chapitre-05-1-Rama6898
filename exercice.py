@@ -6,7 +6,10 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number<0:
+        new=number+ (2*-number)
+
+    return new
 
 
 def use_prefixes() -> List[str]:
@@ -16,20 +19,43 @@ def use_prefixes() -> List[str]:
 
 
 def prime_integer_summation() -> int:
-    return 0
+    somme=0
+    for i in range(2,101,1):
+        for j in range(i,1,-1):
+            if i%j==0:
+                continue
+            if i%j==1:
+                somme=somme+j
+    return somme
 
 
 def factorial(number: int) -> int:
-    return 0
+    
+    for i in range(number-1,1,-1):
+        factorielle=number*i
+    return factorielle
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1,10):
+        if i==5:
+            continue
+        print(i)
+    return 
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
-
+    acceptable=[]
+    for group in groups:
+        if len(group)>10 or len(group)<=3:
+                acceptable.append(False)
+        if 25 in group:
+            acceptable.append(True)
+            if (min(group)<18) or (max(group)>70 and 50 in group):
+                acceptable.append(False)
+    return acceptable
+#Le programme pour cet exo ne marchais pas parce que quand je fais .append je dois pas mettre de égal avant car cela ne fait pas de sens. je n'affecte pas de append a une variable.
+#donc on ne dois jamais écrire acceptable=acceptable.append(False) mais bien acceptable.append
 
 def main() -> None:
     number = -4.325
@@ -56,3 +82,16 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+#group_acceptable= []
+    #for group in groups:
+       # for i in group:
+            #if i==25:
+                #group_acceptable= group_acceptable.append(group)
+           # if len(group)>10 or len(group)<=3:
+                ##continue
+                #if i<18:
+                    #continue
+                #if i>70 and i==50:
+                    #continue
+                #group_acceptable=group_acceptable.append(group)
+    #return group_acceptable
